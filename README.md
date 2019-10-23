@@ -1,24 +1,46 @@
-# complexweb
+# complexweb_K8S
 
-A sample project for learning Docker & Docker Compose with mutiple services based on this [course](https://www.udemy.com/docker-and-kubernetes-the-complete-guide/) on Udemy
+- A sample project for learning how to run mutiple `Docker` containers on k8s
+- The project is based on this [course](https://www.udemy.com/docker-and-kubernetes-the-complete-guide/) on Udemy
 
 ## Architecture
-![Project Architecture](https://www.lucidchart.com/publicSegments/view/3373a7af-060f-42d5-a9e9-50d763bf7d6f/image.png)
-[Diagram](https://www.lucidchart.com/invitations/accept/7938cd15-5ed8-4436-95ce-589702b9fafd)
+- N/A
 
-## Docker Compose Configuration
-docker-compose.yml
+## k8s Config
+  - Each Service/Deployment is defined in a seperate config .yaml file
+  - All files are put under ./k8s
 
-## Nginx Configuration
-default.conf
+### Deployment
+- N/A
+- ./k8s/[MODULE_NAME]-deployment.yaml
 
-## Getting Started (Dev)
-- docker-compose up --build
-- Nagigate the browser to: http://localhost:3050
-- Run Data services inside the containers: PostgreSQL and Redis
+### Service/ClusterIP
+- N/A
+- ./k8s/[MODULE_NAME]-cluster-ip-service.yaml
 
-## Getting Started (CI & Prod)
-- .travis.yml
-- Run Data services on AWS: 
-  - PostgreSQL: AWS RDS
-  - Redis: AWS Elastic Cache
+### Service/Ingress
+- N/A
+
+## Dev Config
+### Docker Config
+  - client (react app)
+    - ./client/Dockerfile.dev
+  - server (Node.js server)
+    - ./server/Dockerfile.dev
+  - worker (Node.js app)
+    - ./worker/Dockerfile.dev
+
+### Getting Started
+N/A
+
+## Production Config
+### Docker Config
+  - client (react app)
+    - ./client/Dockerfile
+  - server (Node.js server)
+    - ./server/Dockerfile
+  - worker (Node.js app)
+    - ./worker/Dockerfile
+
+## Getting Started
+- N/A
