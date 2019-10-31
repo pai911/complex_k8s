@@ -13,7 +13,7 @@ spec:
         - k8s.zuzu.com.tw
       secretName: zuzu-com-tw
   rules:
-    - host: k8s.zuzu.com.tw
+    - host: *.zuzu.com.tw
       http:
         paths:
           - path: /?(.*)
