@@ -5,9 +5,16 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /$1
+    cert-manager.io/issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
+  tls:
+    - hosts:
+        - k8s.zuzu.com.tw
+      secretName: zuzu-com-tw
   rules:
-    - http:
+    - host: k8s.zuzu.com.tw
+      http:
         paths:
           - path: /?(.*)
             backend:
