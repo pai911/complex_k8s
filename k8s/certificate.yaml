@@ -10,6 +10,7 @@ spec:
   commonName: zuzu.com.tw
   dnsNames:
   - k8s.zuzu.com.tw
+  - zuzu.com.tw
   acme:
     config:
     - http01:
