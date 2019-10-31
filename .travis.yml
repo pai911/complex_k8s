@@ -4,11 +4,10 @@ services:
 
 env:
   global:
-    = SHA = $(git rev-parse HEAD)  #Get latest Git SHA
-    = CLOUDSDK_CORE_DISABLE_PROMPTS=1 #Disable all the GCLOUD CLI prompts
+    - SHA=$(git rev-parse HEAD)  #Get latest Git SHA
+    - CLOUDSDK_CORE_DISABLE_PROMPTS=1 #Disable all the GCLOUD CLI prompts
 before_install:
-  - openssl aes-256-cbc -K $encrypted_0c35eebf403c_key -iv $encrypted_0c35eebf403c_iv
-  -in service-account.json.enc -out service-account.json -d
+  - openssl aes-256-cbc -K $encrypted_0c35eebf403c_key -iv $encrypted_0c35eebf403c_iv -in service-account.json.enc -out service-account.json -d
   - curl https://sdk.cloud.google.com | bash > /dev/null;
   - source $HOME/google-cloud-sdk/path.bash.inc
   - gcloud components update kubectl
