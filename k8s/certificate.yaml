@@ -7,10 +7,9 @@ spec:
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
-  commonName: zuzu.com.tw
+  commonName: k8s.zuzu.com.tw
   dnsNames:
   - k8s.zuzu.com.tw
-  - zuzu.com.tw
   acme:
     config:
     - http01:
