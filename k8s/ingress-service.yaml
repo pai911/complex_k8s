@@ -13,8 +13,18 @@ spec:
         - k8s.zuzu.com.tw
       secretName: zuzu-com-tw
   rules:
-    - host: *.zuzu.com.tw
+    - host: "*.zuzu.com.tw"
       http:
+        paths:
+          - path: /?(.*)
+            backend:
+              serviceName: client-cluster-ip-service
+              servicePort: 3000
+          - path: /api/?(.*)
+            backend:
+              serviceName: server-cluster-ip-service
+              servicePort: 5000
+    - http:
         paths:
           - path: /?(.*)
             backend:
