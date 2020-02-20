@@ -4,8 +4,9 @@ metadata:
   name: letsencrypt-prod
 spec:
   acme:
-    # The ACME server URL
+    # The ACME server URL (Prod)
     server: https://acme-v02.api.letsencrypt.org/directory
+    # The ACME server URL (Stage)
     #server: https://acme-staging-v02.api.letsencrypt.org/directory
     # Email address used for ACME registration
     email: admin@zuzu.com.tw
