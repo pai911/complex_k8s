@@ -13,6 +13,17 @@ docker push zuzutw/multi-client:$SHA
 docker push zuzutw/multi-server:$SHA
 docker push zuzutw/multi-worker:$SHA
 
+#Set pg password
+kubectl create secret generic pgpassword --from-literal PGPASSWORD=$PG_PWD
+
+# Install nginx-ingress controller
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.29.0/deploy/static/mandatory.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.29.0/deploy/static/provider/cloud-generic.yaml
+
+# Install cert manager
+kubectl create namespace cert-manager
+kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v0.13.1/cert-manager.yaml
+
 # Deploy to k8s cluster
 kubectl apply -f k8s
 kubectl set image deployments/client-deployment client=zuzutw/multi-client:$SHA
