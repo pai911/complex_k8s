@@ -31,7 +31,7 @@
     - ./worker/Dockerfile.dev
 
 ### Getting Started
-N/A
+- N/A
 
 ## Production Config
 ### Docker Config
@@ -43,4 +43,8 @@ N/A
     - ./worker/Dockerfile
 
 ## Getting Started
-- N/A
+- Deploy to GKE cluster
+- Create database secret
+  - kubectl create secret generic pgpassword --from-literal PGPASSWORD=[YOUR_PASSWORD]                         
+- Install nginx controller
+  - https://kubernetes.github.io/ingress-nginx/deploy/#prerequisite-generic-deployment-command
