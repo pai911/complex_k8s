@@ -43,8 +43,11 @@
     - ./worker/Dockerfile
 
 ## Getting Started
-- Deploy to GKE cluster
+- Start a GKE cluster
 - Create database secret
   - kubectl create secret generic pgpassword --from-literal PGPASSWORD=[YOUR_PASSWORD]                         
 - Install nginx controller
   - https://kubernetes.github.io/ingress-nginx/deploy/#prerequisite-generic-deployment-command
+- Install cert-manager
+  - https://cert-manager.io/docs/installation/kubernetes/
+- Deploy
